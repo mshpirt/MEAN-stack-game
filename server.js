@@ -6,6 +6,9 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
+// routes
+// var playerfetcher = require('./routes/playerfetcher');
+
 // configuration ===========================================
     
 // config files
@@ -35,6 +38,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public')); 
 
 // routes ==================================================
+// app.use('/playerfetcher', playerfetcher);
 require('./app/routes')(app); // configure our routes
 
 // start app ===============================================

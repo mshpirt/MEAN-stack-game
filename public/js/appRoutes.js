@@ -13,6 +13,14 @@
         .when('/nerds', {
             templateUrl: 'views/nerd.html',
             controller: 'NerdController'
+        })
+        .when('/start', {
+            templateUrl: 'views/start.html',
+            //controller: 'MainController'
+        })
+        .when('/load', {
+            templateUrl: 'views/game.html',
+            controller: 'playerGetController'
         });
 
     $locationProvider.html5Mode(true);
