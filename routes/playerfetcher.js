@@ -8,8 +8,7 @@ var ObjectId = require('mongodb').ObjectID;
 // route that gets players from the database
 router.get('/', function(req, res, next) 
 	{
-
-	
+    
 	MongoClient.connect('mongodb://127.0.0.1:27017/players', function(err, db) 
     	{
     	if (err) throw err;

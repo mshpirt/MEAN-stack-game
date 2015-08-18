@@ -5,6 +5,7 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+// var playerfetcher  = require('./routes/playerfetcher');
 
 // routes
 // var playerfetcher = require('./routes/playerfetcher');
@@ -38,8 +39,11 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public')); 
 
 // routes ==================================================
-// app.use('/playerfetcher', playerfetcher);
 require('./app/routes')(app); // configure our routes
+// app.use('/playerfetcher', playerfetcher);
+app.get('/', function(req, res){
+    res.render('home'); //
+});
 
 // start app ===============================================
 // startup our app at http://localhost:8080
@@ -49,4 +53,4 @@ app.listen(port);
 console.log('Magic happens on port ' + port);
 
 // expose app           
-exports = module.exports = app;                         
+module.exports = app;                         
