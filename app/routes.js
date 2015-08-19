@@ -35,9 +35,9 @@ module.exports = function(app) {
 
         // var playerfetcher = require('./routes/playerfetcher');
         // app.use('/playerfetcher', playerfetcher);      
-        app.get('/', function(req, res) {
-            //res.sendfile('./public/index.html'); // load our public/index.html file
-            res.render('home');
+        //app.get('/', function(req, res) {
+            // res.sendfile('./public/index.html'); // load our public/index.html file
+            // res.render('home');
         });
         
 

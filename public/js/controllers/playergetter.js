@@ -1,7 +1,7 @@
 
 angular.module('playerGetModule', []).controller('playerGetController', function($scope, $http) 
     {
-    $http.get("routes/playerfetcher.js")
+    $http.get('playerfetcher')
     .success(function (response) 
       {
 

@@ -5,10 +5,14 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-// var playerfetcher  = require('./routes/playerfetcher');
+var path		   = require('path');
+var favicon 	   = require('serve-favicon');
+var logger 		   = require('morgan');
+var session 	   = require('express-session');
+var MongoStore 	   = require('connect-mongostore')(session);
 
-// routes
-// var playerfetcher = require('./routes/playerfetcher');
+// express route definitions
+var playerfetcher = require('./routes/playerfetcher');
 
 // configuration ===========================================
     
@@ -21,6 +25,12 @@ var port = process.env.PORT || 8080;
 // connect to our mongoDB database 
 // (uncomment after you enter in your own credentials in config/db.js)
 // mongoose.connect(db.url); 
+
+// use a favicon
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+
+// logger
+app.use(logger('dev'));
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
@@ -38,11 +48,43 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 
 
+// store session in mongodb
+app.use(session(
+  {
+  secret: 'secret1',
+  resave: true,
+  saveUninitialized: true,
+  rolling: true,
+  store: new MongoStore(
+    {
+    db: 'login',
+    host: '127.0.0.1',
+    port: '27017',
+    autoRemove: 'disabled',
+    collection: 'users',
+    w:1,
+    }),
+  name: 'managersession',
+  // unset: 'destroy',
+  cookie: { maxAge: 2629746000 }
+  }));
+
+// error handler
+// will print stacktrace
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: err
+  });
+});
+
 // routes ==================================================
-require('./app/routes')(app); // configure our routes
-// app.use('/playerfetcher', playerfetcher);
-app.get('/', function(req, res){
-    res.render('home'); //
+// require('./app/routes')(app); // configure our routes
+app.use('/playerfetcher', playerfetcher);
+app.get('/*', function(req, res){
+    // res.render('index'); //
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // start app ===============================================

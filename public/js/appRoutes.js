@@ -21,6 +21,9 @@
         .when('/load', {
             templateUrl: 'views/game.html',
             controller: 'playerGetController'
+        })
+        .otherwise({
+        redirectTo: '/'
         });
 
     $locationProvider.html5Mode(true);
