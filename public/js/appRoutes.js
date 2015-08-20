@@ -16,7 +16,7 @@
         })
         .when('/start', {
             templateUrl: 'views/start.html',
-            //controller: 'MainController'
+            controller: 'startController'
         })
         .when('/load', {
             templateUrl: 'views/game.html',

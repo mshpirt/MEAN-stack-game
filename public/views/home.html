@@ -4,4 +4,21 @@
     <h1>Main Menu</h1>
 
     <p>{{ tagline }}</p>
+    <p>{{ session }}!</p>
 </div>
+
+<!--
+<h2> Select a player to do a fight</h2>
+<div>
+  <ul>
+    <li ng-repeat="x in session">
+      <form method "post" action="/playerselect">
+        <input type="submit" value="{{ x.playername }}"/>
+      </form>
+      <p>Team: {{ x.team}}</p>
+      <p>Luck: {{ x.stats.luck}}</p>
+      <p>Macro: {{ x.stats.macro}}</p>
+    </li>
+  </ul>
+</div>
+-->

@@ -10,9 +10,12 @@ var favicon 	   = require('serve-favicon');
 var logger 		   = require('morgan');
 var session 	   = require('express-session');
 var MongoStore 	   = require('connect-mongostore')(session);
+var cookieParser   = require('cookie-parser');
 
 // express route definitions
 var playerfetcher = require('./routes/playerfetcher');
+var load = require('./routes/load');
+var newgame = require('./routes/newgame');
 
 // configuration ===========================================
     
@@ -31,6 +34,9 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 
 // logger
 app.use(logger('dev'));
+
+//parse cookies
+app.use(cookieParser());
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
@@ -81,6 +87,8 @@ app.use(function(err, req, res, next) {
 
 // routes ==================================================
 // require('./app/routes')(app); // configure our routes
+app.use('/load', load);
+app.use('/newgame', newgame);
 app.use('/playerfetcher', playerfetcher);
 app.get('/*', function(req, res){
     // res.render('index'); //

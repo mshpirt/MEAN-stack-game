@@ -35,14 +35,15 @@ function checkCookie(req, res)
        				req.session.username = doc.name; 
         			console.log("WELCOME BACK, ", req.session.username);
         			db.close();
-        			res.redirect('/game');
+        			// res.redirect('/game');
+              res.send("Welcome back, ", req.session.username);
         			} 
       			else
         			{
               // goes back to index if user isn't found
         			console.log("No user detected! Click to go back to index.");
         			db.close();
-        			res.send('No save found! Click to <a href="/">return to the index</a>.');
+        			res.send('No save found! Please go to New Game to create one!');
         			}
         		})
     		}

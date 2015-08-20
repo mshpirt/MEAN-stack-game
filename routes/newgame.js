@@ -14,8 +14,8 @@ router.get('/', function(req, res, next)
 // this route is generated after completing the form in the start route
 router.post('/', function(req, res, next) 
   {
-  console.log(req.body.user);
-  name = req.body.user;
+  console.log(req.body.user); // ANGULAR: THIS SHOULD BE DIFFERENT?
+  name = req.body.user; // ANGULAR: THIS SHOULD BE DIFFERENT?
   cookieDetails = req.session.id;
 
   // start connection to the running mongo instance to the users DB, which contains name/sessionID pair
@@ -76,7 +76,8 @@ router.post('/', function(req, res, next)
       });
     });
   // after user creation, re-use the load route to load the user into the game
-  res.redirect('/load');
+  // res.redirect('/load');
+  res.redirect('home');
   })
 
 module.exports = router;

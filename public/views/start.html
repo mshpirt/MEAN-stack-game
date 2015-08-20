@@ -2,10 +2,17 @@
 <h1>Welcome to SC2 Manager
   <p>Please enter a name.</p>
   <p>
-    <form method="post" action="/newgame">
+    <form ng-submit="sendPost()">
+    <input ng-model="newUser"/>
+    <button type="submit">Submit</button>
+    </form>
+
+    <!--
+    <form method="post" action="/game">
       <input type="text" name="user"/>
       <input type="submit" name="submit"/>
     </form>
+    -->
   </p>
   <p>(WARNING: This will delete any current saved games!)</p>
 </h1>

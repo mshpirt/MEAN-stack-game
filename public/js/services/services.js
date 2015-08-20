@@ -1,42 +1,21 @@
 // public/js/services.js
 
-/* example, make my own later
+// service to handle session data
+angular.module('sessionService', []).factory('sessionData', ['$http', function ($http) {
 
-angular.module('app', [])
-    .controller('Ctrl', function Ctrl1($scope,  $rootScope, BlahFactory) {
-        BlahFactory.setValue('another blah');
-    })
-    .constant('blah', 'blah')
-    .factory('BlahFactory', function() {
-        var blah = {
-            value: 'blah'
-        };
-        
-        blah.setValue = function(val) {
-          this.value = val;
-        };
-        
-        blah.getValue = function() {
-            return this.value;
-        };
-        
-        return blah;
-    })
-    .directive('myTemplate', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'my-template.html',
-            scope: {},
-            controller: ["$scope", "blah", "BlahFactory", function($scope, blah, BlahFactory) {
-                
-                $scope.blah = blah;
-                $scope.anotherBlah = BlahFactory.getValue();
-                
-                $scope.test = function(arg) {
-                    console.log(arg);
-                }
-            }]
-        };
-    });
+    // var urlBase = 'http://localhost:2307/Service1.svc';
+    var sessionData = {};
 
-*/ 
+    sessionData.getSession = function () {
+        return $http.get('load');
+    };
+
+    /*
+    StudentDataOp.addStudent = function (stud) {
+        return $http.post(urlBase + '/AddStudent', stud);
+    };
+    */
+
+    return sessionData;
+
+}]);

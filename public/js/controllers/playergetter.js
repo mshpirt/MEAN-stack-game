@@ -1,4 +1,4 @@
-
+// public/js/controllers/playergetter.js
 angular.module('playerGetModule', []).controller('playerGetController', function($scope, $http) 
     {
     $http.get('playerfetcher')
