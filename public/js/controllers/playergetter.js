@@ -9,6 +9,9 @@ angular.module('playerGetModule', []).controller('playerGetController', function
 
       $scope.names = response;
       });
+
+    // playerFightData.set(sharedPlayer);
+
     });
 
 

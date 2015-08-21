@@ -18,9 +18,13 @@
             templateUrl: 'views/start.html',
             controller: 'startController'
         })
-        .when('/load', {
+        .when('/game', {
             templateUrl: 'views/game.html',
             controller: 'playerGetController'
+        })
+        .when('/playerfight', {
+            templateUrl: 'views/playerfight.html',
+            controller: 'playerFightController'
         })
         .otherwise({
         redirectTo: '/'
