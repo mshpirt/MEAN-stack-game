@@ -1,22 +1,25 @@
 // public/js/playerFightervice.js
-angular.module('playerFightService', []).factory('playerFightData', function ()
+angular.module('playerFightService', []).factory('playerFightData', [ function ()
 	{
-	var savedData = {}
+	var playerFightData = {}
 	
+	return playerFightData;
+	/*
 	function set(data) 
 		{
-		savedData = data;
+		playerFightData = data;
 		}
 		
  	function get() 
  		{
-		return savedData;
+		return playerFightData;
  		}
 
-		return 
-			{
-  			set: set,
-  			get: get
- 			}
+	return 
+		{
+  		set: set,
+  		get: get
+ 		}
+ 	*/
 
-	});
+	}]);

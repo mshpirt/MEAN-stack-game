@@ -36,6 +36,8 @@ function checkCookie(req, res)
         			console.log("WELCOME BACK, ", req.session.username);
         			db.close();
         			// res.redirect('/game');
+              // res.send("Welcome back, ", req.session.username);
+              res.status(200);
               res.send("Welcome back, ", req.session.username);
         			} 
       			else
@@ -43,7 +45,8 @@ function checkCookie(req, res)
               // goes back to index if user isn't found
         			console.log("No user detected! Click to go back to index.");
         			db.close();
-        			res.send('No save found! Please go to New Game to create one!');
+        			// res.send('No save found! Please go to New Game to create one!');
+              res.status(200).send('No save found! Please go to New Game to create one!');
         			}
         		})
     		}
