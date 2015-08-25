@@ -1,25 +1,20 @@
 // public/js/playerFightervice.js
-angular.module('playerFightService', []).factory('playerFightData', [ function ()
+angular.module('playerFightService', []).factory('playerFightData', function ()
 	{
-	var playerFightData = {}
-	
-	return playerFightData;
-	/*
-	function set(data) 
+
+	var playerFightData = {};
+
+    // Get myProperty
+    function getProperty(data) 
 		{
 		playerFightData = data;
 		}
-		
- 	function get() 
- 		{
-		return playerFightData;
- 		}
 
-	return 
-		{
-  		set: set,
-  		get: get
- 		}
- 	*/
+    // Set myProperty
+    playerFightData.setProperty = function (value) 
+    	{
+        this.myProperty = value;
+        };
 
-	}]);
+    return playerFightData;
+	});

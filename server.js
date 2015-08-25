@@ -14,6 +14,7 @@ var cookieParser   = require('cookie-parser');
 
 // express route definitions
 var playerfetcher = require('./routes/playerfetcher');
+var playerfetcherRandom = require('./routes/playerfetcherRandom');
 var load = require('./routes/load');
 var newgame = require('./routes/newgame');
 
@@ -90,6 +91,7 @@ app.use(function(err, req, res, next) {
 app.use('/load', load);
 app.use('/newgame', newgame);
 app.use('/playerfetcher', playerfetcher);
+app.use('/playerfetcherRandom', playerfetcherRandom);
 app.get('/*', function(req, res){
     // res.render('index'); //
     res.sendFile(__dirname + '/public/index.html');

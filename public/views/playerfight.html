@@ -1,7 +1,14 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center" ng-repeat"player in players">
     <h1>We do a fight imo</h1>
-
     <p>{{ tagline }}</p>
-
-    <p>You picked: {{ playername }}</p>
+    <p>You picked: {{ selectedPlayer.playername }}</p>
 </div>
+
+ <div class="jumbotron text-center" ng-repeat="player in randomPlayer">
+    <p>Who fought against... {{ player.playername }}!</p>
+    <p>And the winner is...</p>
+ </div>
+
+ <div class="jumbotron text-center">
+ 	<h2>{{ winner }}!!</h2>
+ </div>

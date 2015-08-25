@@ -13,11 +13,11 @@ router.get('/', function(req, res, next)
     	{
     	if (err) throw err;
    		console.log("Connected to Database");
-        assert.equal(err, null);
+      assert.equal(err, null);
 
-        var players = [];
+      var players = [];
 
-        // find all the players
+      // find all the players
     	var playerFinder = db.collection('players').find({ });
     	playerFinder.each(function(err, doc) 
       		{
@@ -33,7 +33,12 @@ router.get('/', function(req, res, next)
               	// send data to controller when cursor is exhausted
         		console.log("No more players. Send the data.");
         		console.dir(players);
-        		res.send(players);
+
+            // testing random player select
+            //var random_entry = players[Math.floor(Math.random() * players.length)]
+            // res.send(random_entry);
+
+            res.send(players);
         		db.close();
         		}
         	})

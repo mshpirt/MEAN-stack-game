@@ -9,7 +9,7 @@
 
 <h2> Select a player to do a fight</h2>
 <div ng-repeat="player in players">
-	<button ng-click="playerSelect(player.playername);"> {{ player.playername}} </button>
+	<button ng-click="playerSelect(player);"> {{ player.playername}} </button>
 	<p>Team: {{ player.team}}</p>
     <p>Luck: {{ player.stats.luck}}</p>
     <p>Macro: {{ player.stats.macro}}</p>

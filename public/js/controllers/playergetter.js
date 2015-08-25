@@ -1,5 +1,5 @@
 // public/js/controllers/playergetter.js
-angular.module('playerGetModule', []).controller('playerGetController', function($scope, $http, $location) 
+angular.module('playerGetModule', ['playerFightService']).controller('playerGetController', function($scope, $http, $location, playerFightData) 
     {
     $http.get('playerfetcher')
     .success(function (response) 
@@ -13,7 +13,8 @@ angular.module('playerGetModule', []).controller('playerGetController', function
     $scope.playerSelect = function(selectedPlayer)
     	{
     	// alert("Selected player is " + selectedPlayer);
-    	// playerFightData.set(selectedPlayer);
+    	// playerFightData.setVar(selectedPlayer);
+    	playerFightData.setProperty(selectedPlayer);
     	$location.path("/playerfight")
   		};
 
