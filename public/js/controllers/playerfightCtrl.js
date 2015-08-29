@@ -31,7 +31,7 @@ angular.module('playerFightModule', ['playerFightService']).controller('playerFi
 
       else if ($scope.selectedPlayerScore < $scope.randomPlayerScore)
       	{
-      	$scope.winner = $scope.randomPlayer.playername;
+      	$scope.winner = $scope.randomPlayer[0].playername;
       	}
 
       else if ($scope.selectedPlayerScore == $scope.randomPlayerScore)

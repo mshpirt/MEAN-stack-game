@@ -56,12 +56,26 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public')); 
 
 // store session in mongodb
+var conf = {
+  db: {
+    db: 'login',
+    host: 'ds035683.mongolab.com',
+    port: 35683,  // optional, default: 27017
+    username: 'dipwood', // optional
+    password: 'apptest123', // optional
+    collection: 'users' // optional, default: sessions
+  },
+  secret: '076ee61d63aa10a125ea872411e433b9'
+};
+
 app.use(session(
   {
   secret: 'secret1',
   resave: true,
   saveUninitialized: true,
   rolling: true,
+  store: new MongoStore(conf.db),
+  /*
   store: new MongoStore(
     {
     db: 'login',
@@ -70,7 +84,8 @@ app.use(session(
     autoRemove: 'disabled',
     collection: 'users',
     w:1,
-    }),
+    }), 
+  */
   name: 'managersession',
   // unset: 'destroy',
   cookie: { maxAge: 2629746000 }
