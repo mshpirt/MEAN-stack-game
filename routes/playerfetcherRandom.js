@@ -48,7 +48,8 @@ router.get('/', function(req, res, next)
             // send data to controller when cursor is exhausted
             console.log("No more players. Send the data.");
             console.dir(players);
-            res.send(players);
+            // res.send(players);
+            res.status(200).send(players);
             db.close();
             }
           })

@@ -38,7 +38,8 @@ router.get('/', function(req, res, next)
             //var random_entry = players[Math.floor(Math.random() * players.length)]
             // res.send(random_entry);
 
-            res.send(players);
+            // res.send(players);
+            res.status(200).send(players);
         		db.close();
         		}
         	})
