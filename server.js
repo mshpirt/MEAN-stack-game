@@ -63,7 +63,7 @@ var conf = {
     port: 35683,  // optional, default: 27017
     username: 'testuser', // optional
     password: 'apptest123', // optional
-    collection: 'users' // optional, default: sessions
+    collection: 'login' // optional, default: sessions
   },
   secret: '076ee61d63aa10a125ea872411e433b9'
 };
