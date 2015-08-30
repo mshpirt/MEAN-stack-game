@@ -42,7 +42,7 @@ function checkCookie(req, res)
               // res.send("Welcome back, ", req.session.username);
               // res.status(200);
               // res.send("Welcome back, ", req.session.username);
-              res.status(200).send('Welcome back, ' req.session.username);
+              res.status(200).send(req.session.username);
         			} 
       			else
         			{
