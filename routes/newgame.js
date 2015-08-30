@@ -19,7 +19,9 @@ router.post('/', function(req, res, next)
   cookieDetails = req.session.id;
 
   // start connection to the running mongo instance to the users DB, which contains name/sessionID pair
-  MongoClient.connect('mongodb://127.0.0.1:27017/users', function(err, db) 
+  var uri = 'mongodb://testuser:apptest123@ds035683.mongolab.com:35683/heroku_td4242cl';
+  MongoClient.connect(uri, function(err, db)
+  // MongoClient.connect('mongodb://127.0.0.1:27017/users', function(err, db) 
     {
     if (err) throw err;
     console.log("Connected to Database");

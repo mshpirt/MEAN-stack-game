@@ -55,13 +55,13 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 
 
-// store session in mongodb
+// store session in mongodb on heroku
 var conf = {
   db: {
-    db: 'login',
+    db: 'heroku_td4242cl',
     host: 'ds035683.mongolab.com',
     port: 35683,  // optional, default: 27017
-    username: 'dipwood', // optional
+    username: 'testuser', // optional
     password: 'apptest123', // optional
     collection: 'users' // optional, default: sessions
   },
