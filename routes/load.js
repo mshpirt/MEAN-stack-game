@@ -35,12 +35,14 @@ function checkCookie(req, res)
       			if (doc != null) 
        				{
        				req.session.username = doc.name; 
+              // var test = doc.name;// 
         			console.log("WELCOME BACK, ", req.session.username);
         			db.close();
         			// res.redirect('/game');
               // res.send("Welcome back, ", req.session.username);
-              res.status(200);
-              res.send("Welcome back, ", req.session.username);
+              // res.status(200);
+              // res.send("Welcome back, ", req.session.username);
+              res.status(200).send('Welcome back, ' req.session.username);
         			} 
       			else
         			{
