@@ -60,7 +60,8 @@ function checkCookie(req, res)
 	else
 		{
 		console.log("No cookie data");	
-		res.redirect('/')
+		// res.redirect('/')
+    res.status(200).send('No save found! Please go to New Game to create one!');
 		}	
 	};
 
