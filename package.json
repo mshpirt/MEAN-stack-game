@@ -1,5 +1,5 @@
  {
-      "name": "SC2 Manager",
+      "name": "SC2-Manager",
       "main": "server.js",
       "dependencies": {
         "body-parser" : "~1.4.2",

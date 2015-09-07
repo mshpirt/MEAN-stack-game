@@ -1,5 +1,5 @@
 {
-    "name": "SC2 Manager",
+    "name": "SC2-Manager",
     "version": "1.0.0",
     "dependencies": {
         "bootstrap": "latest",
